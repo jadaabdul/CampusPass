@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: var(--color-primary-base);
+  --color-background: var(--color-bg-base);
+  --color-surface: var(--color-surface-base);
+  --color-surface-secondary: var(--color-surface-secondary);
+  --color-text: var(--color-text-base);
+  --color-text-muted: var(--color-text-muted-base);
+  --color-border: var(--color-border-base);
+
+  /* Status */
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-info: var(--color-info);
+
+  /* Shadows */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  /* Animations */
+  --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    /* ===========================
+       Brand
+    =========================== */
+    --color-primary-base: #22c55e;
+    --color-primary-hover: #16a34a;
+    --color-primary-light: #86efac;
+
+    /* ===========================
+       Backgrounds
+    =========================== */
+    --color-bg-base: #f4fbf6;
+    --color-surface-base: #fcfffd;
+    --color-surface-secondary: #edf9f0;
+
+    /* ===========================
+       Text
+    =========================== */
+    --color-text-base: #0f172a;
+    --color-text-muted-base: #475569;
+
+    /* ===========================
+       Border
+    =========================== */
+    --color-border-base: #d8efe0;
+
+    /* ===========================
+       Status
+    =========================== */
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-info: #3b82f6;
+
+    /* ===========================
+       Shadows
+    =========================== */
+    --shadow-sm: 0 1px 2px rgb(15 23 42 / 5%);
+    --shadow-md: 0 4px 12px rgb(15 23 42 / 8%);
+    --shadow-lg: 0 12px 30px rgb(15 23 42 / 12%);
+
+    color-scheme: light;
+  }
+
+  .dark {
+    /* ===========================
+       Brand
+    =========================== */
+    --color-primary-base: #4ade80;
+    --color-primary-hover: #22c55e;
+    --color-primary-light: #86efac;
+
+    /* ===========================
+       Backgrounds
+    =========================== */
+    --color-bg-base: #09090b;
+    --color-surface-base: #18181b;
+    --color-surface-secondary: #27272a;
+
+    /* ===========================
+       Text
+    =========================== */
+    --color-text-base: #fafafa;
+    --color-text-muted-base: #a1a1aa;
+
+    /* ===========================
+       Border
+    =========================== */
+    --color-border-base: rgba(255, 255, 255, 0.08);
+
+    /* ===========================
+       Status
+    =========================== */
+    --color-success: #4ade80;
+    --color-warning: #fbbf24;
+    --color-danger: #f87171;
+    --color-info: #60a5fa;
+
+    /* ===========================
+       Shadows
+    =========================== */
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 35%);
+    --shadow-md: 0 4px 12px rgb(0 0 0 / 45%);
+    --shadow-lg: 0 12px 30px rgb(0 0 0 / 55%);
+
+    color-scheme: dark;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg-base);
+    color: var(--color-text-base);
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  button {
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: 1px solid var(--color-border-base);
+    outline: none;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  ::placeholder {
+    color: var(--color-text-muted-base);
+    opacity: 1;
+  }
+
+  ::selection {
+    background: var(--color-primary-light);
+    color: #052e16;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary-base);
+    outline-offset: 2px;
+  }
+
+  :disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+@keyframes scanDown {
+  0% {
+    top: 10%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 85%;
+    opacity: 1;
+  }
+  100% {
+    top: 10%;
+    opacity: 0.8;
+  }
+}
+
+.animate-scan-line {
+  animation: scanDown 2.5s ease-in-out infinite;
+}
